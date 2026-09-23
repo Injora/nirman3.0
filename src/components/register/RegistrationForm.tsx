@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import EyebrowLabel from "@/components/EyebrowLabel";
-import { BRANCHES, EVENT_NAME, YEARS } from "@/lib/constants";
+import { EVENT_NAME, YEARS } from "@/lib/constants";
 import { createClient } from "@/lib/supabase/client";
 import {
   validateRegistrationForm,
@@ -32,7 +32,6 @@ export default function RegistrationForm({
     full_name: defaultName,
     student_id: "",
     phone_number: "",
-    branch: "",
     year: "",
   });
   const [errors, setErrors] = useState<RegistrationFormErrors>({});
@@ -60,7 +59,6 @@ export default function RegistrationForm({
       full_name: values.full_name.trim(),
       student_id: values.student_id.trim(),
       phone_number: values.phone_number.trim(),
-      branch: values.branch,
       year: values.year,
     });
 
@@ -146,26 +144,6 @@ export default function RegistrationForm({
             placeholder="+91 90000 00000"
           />
           {errors.phone_number ? <FieldError message={errors.phone_number} /> : null}
-        </div>
-
-        <div>
-          <label className={labelClass} htmlFor="branch">
-            Branch
-          </label>
-          <select
-            id="branch"
-            className={fieldClass}
-            value={values.branch}
-            onChange={(e) => update("branch", e.target.value)}
-          >
-            <option value="">Select branch</option>
-            {BRANCHES.map((branch) => (
-              <option key={branch} value={branch}>
-                {branch}
-              </option>
-            ))}
-          </select>
-          {errors.branch ? <FieldError message={errors.branch} /> : null}
         </div>
 
         <div>

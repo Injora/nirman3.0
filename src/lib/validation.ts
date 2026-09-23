@@ -13,7 +13,6 @@ export type RegistrationFormValues = {
   full_name: string;
   student_id: string;
   phone_number: string;
-  branch: string;
   year: string;
 };
 
@@ -35,10 +34,6 @@ export function validateRegistrationForm(values: RegistrationFormValues): Regist
   const phone = values.phone_number.trim();
   if (!/^[0-9+\-\s]{7,15}$/.test(phone)) {
     errors.phone_number = "Enter a valid phone number.";
-  }
-
-  if (!values.branch) {
-    errors.branch = "Select your branch.";
   }
 
   if (!values.year) {

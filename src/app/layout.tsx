@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "NIRMAAN 3.0 — NST-SDC Solo Hackathon",
   description:
-    "Nirmaan 3.0 is a solo hackathon conducted by NST-SDC (Student Developer Club) as part of its student intake. Open exclusively to ADYPU students.",
+    "Nirmaan 3.0 is a solo hackathon conducted by NST-SDC (Student Developer Club) as part of its student intake. Open exclusively to NST first-year students.",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {

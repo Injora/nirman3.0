@@ -10,16 +10,6 @@ export const NAV_LINKS = [
   { href: "/register", label: "Registration" },
 ] as const;
 
-export const BRANCHES = [
-  "Computer Science & Engineering",
-  "Information Technology",
-  "Electronics & Communication Engineering",
-  "Electrical Engineering",
-  "Mechanical Engineering",
-  "Civil Engineering",
-  "Other",
-] as const;
-
 export const YEARS = [
   { value: "1", label: "1st Year" },
   { value: "2", label: "2nd Year" },
@@ -40,22 +30,22 @@ export const ABOUT_POINTS = [
   },
   {
     label: "03 // ELIGIBILITY",
-    title: "ADYPU students only",
-    body: "Open exclusively to students holding a verified @adypu.edu.in institutional email. Verification happens through Google sign-in, enforced at the database.",
+    title: "NST first-year students only",
+    body: "Open exclusively to NST first-year students holding a verified @adypu.edu.in institutional email. Verification happens through Google sign-in, enforced at the database.",
   },
 ] as const;
 
 export const RULES = [
   "This is a strictly solo hackathon — no teams, no team codes, no invites.",
   "One Google account may hold exactly one registration. Duplicate attempts are rejected.",
-  "Only @adypu.edu.in institutional email addresses are eligible to register or participate.",
+  "Open only to NST first-year students with an @adypu.edu.in institutional email address.",
   "All code must be written during the hackathon window. Pre-built projects will be disqualified.",
   "Organizers reserve the right to verify identity and registration details at check-in.",
   "Decisions made by the NST-SDC organizing team are final.",
 ] as const;
 
 export const TIMELINE = [
-  { tag: "PHASE 01", title: "Registrations Open", detail: "Solo registration opens for all eligible ADYPU students." },
+  { tag: "PHASE 01", title: "Registrations Open", detail: "Solo registration opens for all eligible NST first-year students." },
   { tag: "PHASE 02", title: "Problem Statements Drop", detail: "Tracks and problem statements are released to registered builders." },
   { tag: "PHASE 03", title: "Build Window", detail: "The solo build sprint — design, build, and ship your submission." },
   { tag: "PHASE 04", title: "Submissions Close", detail: "Final submissions lock. No late entries accepted." },

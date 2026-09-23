@@ -47,7 +47,6 @@ export default function ConfirmationPanel({
           <Field label="Email" value={registration.email} span />
           <Field label="Student ID" value={registration.student_id} />
           <Field label="Phone" value={registration.phone_number} />
-          <Field label="Branch" value={registration.branch} span />
           <Field label="Year" value={registration.year} />
           <Field label="Status" value={registration.registration_status} />
         </div>

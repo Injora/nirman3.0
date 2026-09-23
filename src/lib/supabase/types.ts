@@ -8,7 +8,6 @@ export type Registration = {
   email: string;
   student_id: string;
   phone_number: string;
-  branch: string;
   year: string;
   registration_status: RegistrationStatus;
   created_at: string;
@@ -21,7 +20,6 @@ export type RegistrationInsert = {
   email: string;
   student_id: string;
   phone_number: string;
-  branch: string;
   year: string;
 };
 

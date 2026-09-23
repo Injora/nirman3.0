@@ -13,7 +13,7 @@ export default function SiteFooter() {
           </p>
         </div>
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-paper/40">
-          Solo hackathon // ADYPU institutional accounts only
+          Solo hackathon // NST first-year students only
         </p>
       </div>
     </footer>

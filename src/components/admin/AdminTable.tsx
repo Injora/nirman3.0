@@ -15,8 +15,7 @@ export default function AdminTable({ registrations }: { registrations: Registrat
         r.full_name.toLowerCase().includes(q) ||
         r.email.toLowerCase().includes(q) ||
         r.student_id.toLowerCase().includes(q) ||
-        r.registration_code.toLowerCase().includes(q) ||
-        r.branch.toLowerCase().includes(q);
+        r.registration_code.toLowerCase().includes(q);
       const matchesStatus = status === "all" || r.registration_status === status;
       return matchesQuery && matchesStatus;
     });
@@ -28,7 +27,7 @@ export default function AdminTable({ registrations }: { registrations: Registrat
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search name, email, student ID, branch, code…"
+          placeholder="Search name, email, student ID, code…"
           className="flex-1 border-2 border-paper bg-void px-4 py-3 font-mono text-sm text-paper placeholder:text-paper/30 outline-none focus:border-volt"
         />
         <select
@@ -51,7 +50,7 @@ export default function AdminTable({ registrations }: { registrations: Registrat
         <table className="w-full min-w-[900px] border-collapse text-left">
           <thead>
             <tr className="border-b-2 border-paper/20 bg-void-soft">
-              {["Name", "Email", "Student ID", "Phone", "Branch", "Year", "Registered", "Status"].map(
+              {["Name", "Email", "Student ID", "Phone", "Year", "Registered", "Status"].map(
                 (h) => (
                   <th
                     key={h}
@@ -70,7 +69,6 @@ export default function AdminTable({ registrations }: { registrations: Registrat
                 <td className="px-4 py-3 text-sm text-paper/70">{r.email}</td>
                 <td className="px-4 py-3 font-mono text-xs text-paper/70">{r.student_id}</td>
                 <td className="px-4 py-3 font-mono text-xs text-paper/70">{r.phone_number}</td>
-                <td className="px-4 py-3 text-sm text-paper/70">{r.branch}</td>
                 <td className="px-4 py-3 text-sm text-paper/70">{r.year}</td>
                 <td className="px-4 py-3 font-mono text-xs text-paper/50">
                   {new Date(r.created_at).toLocaleDateString("en-IN")}
@@ -84,7 +82,7 @@ export default function AdminTable({ registrations }: { registrations: Registrat
             ))}
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={8} className="px-4 py-8 text-center text-sm text-paper/40">
+                <td colSpan={7} className="px-4 py-8 text-center text-sm text-paper/40">
                   No registrations match your search.
                 </td>
               </tr>

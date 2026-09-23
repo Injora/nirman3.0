@@ -39,7 +39,7 @@ export default function HomePage() {
           <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 border-t-2 border-paper/15 pt-8">
             {[
               ["SOLO", "Format"],
-              ["ADYPU", "Eligibility"],
+              ["NST 1ST YR", "Eligibility"],
               ["300+", "Capacity"],
               ["NST-SDC", "Organizer"],
             ].map(([value, label]) => (
@@ -55,7 +55,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="border-t-2 border-paper/15 bg-void">
+      <section id="about" className="scroll-mt-20 border-t-2 border-paper/15 bg-void">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
           <SectionHeading
             eyebrow="ABOUT // NIRMAAN 3.0"
@@ -66,7 +66,7 @@ export default function HomePage() {
                 Judged on merit.
               </>
             }
-            description={`${EVENT_NAME} is ${ORG_SHORT}'s flagship solo hackathon — a compressed build sprint designed to surface serious individual builders from the ADYPU campus for the club's student intake.`}
+            description={`${EVENT_NAME} is ${ORG_SHORT}'s flagship solo hackathon — a compressed build sprint designed to surface serious individual builders from NST's first-year cohort for the club's student intake.`}
           />
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -85,7 +85,7 @@ export default function HomePage() {
       </section>
 
       {/* HACKATHON / FORMAT */}
-      <section id="hackathon" className="border-t-2 border-paper/15 bg-volt text-void">
+      <section id="hackathon" className="scroll-mt-20 border-t-2 border-paper/15 bg-volt text-void">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
           <EyebrowLabel tone="paper">CAMPUS POSTER WALL // FORMAT</EyebrowLabel>
           <h2 className="mt-3 font-display uppercase leading-[0.85] text-4xl sm:text-6xl lg:text-7xl break-words">
@@ -111,12 +111,11 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="lg:col-span-3 grid sm:grid-cols-2 gap-6">
+            <div className="lg:col-span-3 grid sm:grid-cols-3 gap-6">
               {[
                 ["Sign in with Google", "Continue with your institutional Google account — nothing else is accepted."],
                 ["Verify eligibility", "Only @adypu.edu.in accounts pass verification, enforced at the database."],
-                ["Fill your profile", "Confirm your name, student ID, phone, branch, and year."],
-                ["Get your code", "Receive a unique NIR- registration code as confirmation."],
+                ["Fill your profile", "Confirm your name, student ID, phone, and year."],
               ].map(([title, body]) => (
                 <div key={title} className="border-2 border-void bg-paper p-5">
                   <p className="font-display uppercase text-lg leading-tight">{title}</p>
@@ -129,7 +128,7 @@ export default function HomePage() {
       </section>
 
       {/* RULES */}
-      <section id="rules" className="border-t-2 border-paper/15 bg-void">
+      <section id="rules" className="scroll-mt-20 border-t-2 border-paper/15 bg-void">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
           <SectionHeading
             eyebrow="RULEBOOK // READ BEFORE REGISTERING"

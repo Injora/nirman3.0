@@ -47,8 +47,8 @@ export default function SignInPanel({ error }: { error?: string }) {
             Institutional email required
           </p>
           <p className="mt-2 text-sm text-paper/80 leading-relaxed">
-            Nirmaan 3.0 registration is restricted to @{ALLOWED_EMAIL_DOMAIN} institutional
-            emails. Please sign in again with your ADYPU Google account.
+            Nirmaan 3.0 registration is restricted to NST first-year students with an
+            @{ALLOWED_EMAIL_DOMAIN} institutional email. Please sign in again with that account.
           </p>
         </div>
       ) : null}

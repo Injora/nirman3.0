@@ -52,7 +52,6 @@ create table if not exists public.registrations (
   email text not null,
   student_id text not null,
   phone_number text not null,
-  branch text not null,
   year text not null,
   registration_status text not null default 'registered',
   created_at timestamptz not null default now(),
