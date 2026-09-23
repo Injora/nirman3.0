@@ -39,7 +39,37 @@ create trigger enforce_adypu_domain_on_signup
   execute function public.enforce_adypu_domain();
 
 -- ============================================================================
--- 2. REGISTRATIONS TABLE
+-- 2. ADMIN / ORGANIZER ACCESS
+-- ============================================================================
+-- Created before `registrations` below because its SELECT policy calls
+-- public.is_admin() — the function must already exist at policy-creation time.
+create table if not exists public.admins (
+  user_id uuid primary key references auth.users (id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+
+alter table public.admins enable row level security;
+-- Intentionally no policies: only the service role (which bypasses RLS) or
+-- the Supabase SQL Editor (as postgres) can read/write this table. No
+-- authenticated-role policy exists, so it is never queryable from the
+-- browser or the anon/authenticated API key.
+
+create or replace function public.is_admin()
+returns boolean
+language sql
+security definer
+set search_path = public
+stable
+as $$
+  select exists (
+    select 1 from public.admins where user_id = auth.uid()
+  );
+$$;
+
+grant execute on function public.is_admin() to authenticated;
+
+-- ============================================================================
+-- 3. REGISTRATIONS TABLE
 -- ============================================================================
 create sequence if not exists public.registration_code_seq start 1;
 
@@ -119,34 +149,6 @@ create policy "Students can insert own registration"
 -- No UPDATE or DELETE policy: registrations are immutable once submitted.
 -- (Add an UPDATE policy scoped to `auth.uid() = user_id` later if the
 -- product needs student-editable registrations.)
-
--- ============================================================================
--- 3. ADMIN / ORGANIZER ACCESS
--- ============================================================================
-create table if not exists public.admins (
-  user_id uuid primary key references auth.users (id) on delete cascade,
-  created_at timestamptz not null default now()
-);
-
-alter table public.admins enable row level security;
--- Intentionally no policies: only the service role (which bypasses RLS) or
--- the Supabase SQL Editor (as postgres) can read/write this table. No
--- authenticated-role policy exists, so it is never queryable from the
--- browser or the anon/authenticated API key.
-
-create or replace function public.is_admin()
-returns boolean
-language sql
-security definer
-set search_path = public
-stable
-as $$
-  select exists (
-    select 1 from public.admins where user_id = auth.uid()
-  );
-$$;
-
-grant execute on function public.is_admin() to authenticated;
 
 -- ============================================================================
 -- 4. MAKE SOMEONE AN ADMIN (run manually, per organizer)
