@@ -20,7 +20,7 @@ Supabase (Auth + Postgres).
 | Hosting    | Any Next.js host (Vercel recommended)              |
 
 No other backend exists — the frontend talks to Supabase directly (via the public
-anon key) for everything except cookie/session plumbing, which is handled by a
+publishable key) for everything except cookie/session plumbing, which is handled by a
 Route Handler (`/auth/callback`) and a request-time session refresher (`proxy.ts`,
 Next 16's renamed `middleware.ts`).
 
@@ -28,7 +28,7 @@ Next 16's renamed `middleware.ts`).
 
 ```bash
 npm install
-cp .env.example .env.local   # then fill in your Supabase project's URL + anon key
+cp .env.example .env.local   # then fill in your Supabase project's URL + publishable key
 npm run dev
 ```
 
@@ -84,10 +84,10 @@ Copy `.env.example` to `.env.local` and fill in (Project Settings → API):
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon/public key>
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<publishable key, sb_publishable_...>
 ```
 
-Only the anon key is used — the service role key is never needed by this app and
+Only the publishable key is used — the secret key (SUPABASE_SECRET_KEY) is never needed by this app and
 must never be added to any `NEXT_PUBLIC_*` variable or committed anywhere.
 
 ### 2.5 Make yourself an organizer (for `/admin`)
