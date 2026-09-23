@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --color-void: #060606;
+  --color-void-soft: #111111;
+  --color-paper: #f4f1e8;
+  --color-volt: #1e3aff;
+  --color-volt-dim: #16247a;
+  --color-acid: #cbff4d;
+}
+
+@theme inline {
+  --color-void: var(--color-void);
+  --color-void-soft: var(--color-void-soft);
+  --color-paper: var(--color-paper);
+  --color-volt: var(--color-volt);
+  --color-volt-dim: var(--color-volt-dim);
+  --color-acid: var(--color-acid);
+  --font-display: var(--font-archivo-black);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+html {
+  background: var(--color-void);
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-volt);
+  color: var(--color-paper);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(244, 241, 232, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 241, 232, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(244, 241, 232, 0.16) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
